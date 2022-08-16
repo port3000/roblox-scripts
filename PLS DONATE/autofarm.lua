@@ -168,14 +168,6 @@ while true do
     while (Players.LocalPlayer.leaderstats.Raised.value == RaisedC) do
         wait(1)
         counter = counter + 1
-        --Server hops after 1800 seconds (30 minutes)
-        if counter >= 1800 then
-            --Random wait time in case of interference from alts
-            wait(math.random(1, 60))
-            local Servers = game.HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/8737602449/servers/Public?sortOrder=Desc&limit=100"))
-            for i, v in pairs(Servers.data) do
-                if v.playing > 19 and v.playing < 27 then
-                    game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, v.id)
                 end
             end
         end
